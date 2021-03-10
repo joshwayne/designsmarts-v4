@@ -1,15 +1,17 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import github from '../img/github-icon.svg'
-import logo from '../img/logo.svg'
+import React from "react";
+import { Link } from "gatsby";
+import github from "../img/github-icon.svg";
+import logo from "../img/logo-dark.svg";
+// import sun from "../img/sun.svg"
+// import moon from "../img/moon.svg"
 
 const Navbar = class extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       active: false,
-      navBarActiveClass: '',
-    }
+      navBarActiveClass: "",
+    };
   }
 
   toggleHamburger = () => {
@@ -23,26 +25,30 @@ const Navbar = class extends React.Component {
         // set the class in state for the navbar accordingly
         this.state.active
           ? this.setState({
-              navBarActiveClass: 'is-active',
+              navBarActiveClass: "is-active",
             })
           : this.setState({
-              navBarActiveClass: '',
-            })
+              navBarActiveClass: "",
+            });
       }
-    )
-  }
+    );
+  };
 
   render() {
     return (
       <nav
-        className="navbar is-transparent"
+        className="container mx-auto flex flex-row justify-between items-center text-gray-800"
         role="navigation"
         aria-label="main-navigation"
       >
         <div className="container">
           <div className="navbar-brand">
-            <Link to="/" className="navbar-item" title="Logo">
-              <img src={logo} alt="Kaldi" style={{ width: '88px' }} />
+            <Link
+              className="logo p-4 -ml-4 tracking-tight font-bold text-2xl flex flex-row items-center"
+              to="/"
+            >
+              <img className="h-10" src={logo} alt="Logo" />
+              <span className="ml-4">Design Smarts</span>
             </Link>
             {/* Hamburger menu */}
             <div
@@ -94,8 +100,8 @@ const Navbar = class extends React.Component {
           </div>
         </div>
       </nav>
-    )
+    );
   }
-}
+};
 
-export default Navbar
+export default Navbar;
