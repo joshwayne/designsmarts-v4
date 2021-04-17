@@ -35,55 +35,44 @@ const Navbar = class extends React.Component {
 
   render() {
     return (
-      <nav
-        className="container"
-        role="navigation"
-        aria-label="main-navigation"
-      >
-        <div>
-          <div className="">
-            <Link
-              className="logo"
-              to="/"
-            >
-              <img className="logo--icon" src={logo} alt="Logo" />
-              <span className="logo--text">Uncommon sense</span>
+      <nav className="container navbar" role="navigation" aria-label="main-navigation">
+        <Link className="logo" to="/">
+          <img className="logo--icon" src={logo} alt="Logo" />
+          <span className="logo--text">Uncommon sense</span>
+        </Link>
+        {/* Hamburger menu */}
+        <div
+          className={`navbar-burger burger ${this.state.navBarActiveClass}`}
+          data-target="navMenu"
+          onClick={() => this.toggleHamburger()}
+        >
+          <span />
+          <span />
+          <span />
+        </div>
+        <div
+          id="navMenu"
+          className={`navbar--menu ${this.state.navBarActiveClass}`}
+        >
+          <div className="navbar-start has-text-centered">
+            <Link className="navbar-item" to="/about">
+              About
             </Link>
-            {/* Hamburger menu */}
-            <div
-              className={`navbar-burger burger ${this.state.navBarActiveClass}`}
-              data-target="navMenu"
-              onClick={() => this.toggleHamburger()}
-            >
-              <span />
-              <span />
-              <span />
-            </div>
-          </div>
-          <div
-            id="navMenu"
-            className={`navbar--menu ${this.state.navBarActiveClass}`}
-          >
-            <div className="navbar-start has-text-centered">
-              <Link className="navbar-item" to="/about">
-                About
-              </Link>
-              <Link className="navbar-item" to="/products">
-                Products
-              </Link>
-              <Link className="navbar-item" to="/blog">
-                Blog
-              </Link>
-              <Link className="navbar-item" to="/contact">
-                Contact
-              </Link>
-              <Link className="navbar-item" to="/patterns">
-                Design Patterns
-              </Link>
-              <Link className="navbar-item" to="/contact/examples">
-                Form Examples
-              </Link>
-            </div>
+            <Link className="navbar-item" to="/products">
+              Products
+            </Link>
+            <Link className="navbar-item" to="/blog">
+              Blog
+            </Link>
+            <Link className="navbar-item" to="/contact">
+              Contact
+            </Link>
+            <Link className="navbar-item" to="/patterns">
+              Design Patterns
+            </Link>
+            <Link className="navbar-item" to="/contact/examples">
+              Form Examples
+            </Link>
           </div>
         </div>
       </nav>

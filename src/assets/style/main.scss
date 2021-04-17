@@ -2,7 +2,8 @@
 @import "variables";
 
 body {
-    font-size: 14px;
+    font-size: 15px;
+    font-family: "TT Norms", sans-serif;
 }
 
 .container {
@@ -10,14 +11,28 @@ body {
     max-width: 1600px;
 }
 
+.navbar {
+    padding: 1rem 0;
+}
+
 .logo {
     font-size: 2rem;
+    line-height: 2rem;
+    font-weight: bold;
+    font-size: 1.6rem;
+    letter-spacing: -0.02em;
+    color: $grey-900;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
 }
 
 .logo--icon {
-    width: 1em;
+    width: 2.4rem;
 }
 
 .logo--text {
     font-weight: bold;
+    padding-left: 1rem;
 }
+

@@ -1,0 +1,16 @@
+{
+  "extends": [
+    "react-app",
+    "prettier"
+  ],
+  "rules": {
+    "jsx-quotes": [
+      1,
+      "prefer-double"
+    ],
+    "react/jsx-max-props-per-line": [2, {"maximum": 1, "when": "always" }] 
+  },
+  "plugins": [
+    "prettier"
+  ]
+}
