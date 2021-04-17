@@ -1,0 +1,23 @@
+@import "normalize";
+@import "variables";
+
+body {
+    font-size: 14px;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1600px;
+}
+
+.logo {
+    font-size: 2rem;
+}
+
+.logo--icon {
+    width: 1em;
+}
+
+.logo--text {
+    font-weight: bold;
+}
