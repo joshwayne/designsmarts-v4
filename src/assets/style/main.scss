@@ -1,0 +1,50 @@
+@import "normalize";
+@import "variables";
+
+body {
+    font-size: 15px;
+    font-family: "TT Norms Pro", sans-serif;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1600px;
+}
+
+.navbar {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2rem;
+    line-height: 2rem;
+    font-weight: bold;
+    font-size: 1.6rem;
+    letter-spacing: -0.02em;
+    color: $grey-900;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.logo--icon {
+    width: 2.4rem;
+}
+
+.logo--text {
+    font-weight: bold;
+    padding-left: 1rem;
+}
+
+.navbar--item {
+    color: $grey-900;
+    font-weight: bold;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 1rem;
+}
+
