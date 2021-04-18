@@ -41,7 +41,7 @@ const Navbar = class extends React.Component {
           <span className="logo--text">Uncommon sense</span>
         </Link>
         {/* Hamburger menu */}
-        <div
+        {/* <div
           className={`navbar-burger burger ${this.state.navBarActiveClass}`}
           data-target="navMenu"
           onClick={() => this.toggleHamburger()}
@@ -49,30 +49,33 @@ const Navbar = class extends React.Component {
           <span />
           <span />
           <span />
-        </div>
+        </div> */}
         <div
           id="navMenu"
           className={`navbar--menu ${this.state.navBarActiveClass}`}
         >
-          <div className="navbar-start has-text-centered">
-            <Link className="navbar-item" to="/about">
-              About
-            </Link>
-            <Link className="navbar-item" to="/products">
-              Products
-            </Link>
-            <Link className="navbar-item" to="/blog">
-              Blog
-            </Link>
-            <Link className="navbar-item" to="/contact">
-              Contact
-            </Link>
-            <Link className="navbar-item" to="/patterns">
+          <div className="">
+            <Link className="navbar--item" to="/patterns">
               Design Patterns
             </Link>
-            <Link className="navbar-item" to="/contact/examples">
-              Form Examples
+            <Link className="navbar--item" to="/page-designs">
+              Page Designs
             </Link>
+            <Link className="navbar--item" to="/articles">
+              Articles
+            </Link>
+            <Link className="navbar--item" to="/design-courses">
+              Courses
+            </Link>
+            <Link className="navbar--item" to="/about">
+              About
+            </Link>
+            {/* <Link className="navbar--item" to="/contact">
+              Contact
+            </Link> */}
+            {/* <Link className="navbar--item" to="/contact/examples">
+              Form Examples
+            </Link> */}
           </div>
         </div>
       </nav>

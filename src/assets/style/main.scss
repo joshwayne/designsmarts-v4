@@ -3,7 +3,7 @@
 
 body {
     font-size: 15px;
-    font-family: "TT Norms", sans-serif;
+    font-family: "TT Norms Pro", sans-serif;
 }
 
 .container {
@@ -12,7 +12,10 @@ body {
 }
 
 .navbar {
-    padding: 1rem 0;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logo {
@@ -34,5 +37,14 @@ body {
 .logo--text {
     font-weight: bold;
     padding-left: 1rem;
+}
+
+.navbar--item {
+    color: $grey-900;
+    font-weight: bold;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 1rem;
 }
 
