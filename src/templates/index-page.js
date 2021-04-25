@@ -16,54 +16,31 @@ export const IndexPageTemplate = ({
   intro,
 }) => (
   <div>
-    <div
-      className="full-width-image margin-top-0"
-      style={{
-        backgroundImage: `url(${
-          !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-        })`,
-        backgroundPosition: `top left`,
-        backgroundAttachment: `fixed`,
-      }}
-    >
-      <div
-        style={{
-          display: 'flex',
-          height: '150px',
-          lineHeight: '1',
-          justifyContent: 'space-around',
-          alignItems: 'left',
-          flexDirection: 'column',
-        }}
-      >
-        <h1
-          className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
-          style={{
-            boxShadow:
-              'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            backgroundColor: 'rgb(255, 68, 0)',
-            color: 'white',
-            lineHeight: '1',
-            padding: '0.25em',
-          }}
-        >
+    <div className="container hero">
+      <div className="hero--text">
+        <h1 className="hero--header">
           {title}
         </h1>
-        <h3
-          className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
-          style={{
-            boxShadow:
-              'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            backgroundColor: 'rgb(255, 68, 0)',
-            color: 'white',
-            lineHeight: '1',
-            padding: '0.25em',
-          }}
-        >
+        <h3 className="hero--subheader text-body-large">
           {subheading}
         </h3>
       </div>
+      <div
+        className="hero--image"
+        // style={{
+        //   backgroundImage: `url(${!!image.childImageSharp ? image.childImageSharp.fluid.src : image
+        //     })`,
+        //   backgroundPosition: `top left`,
+        //   backgroundAttachment: `fixed`,
+        // }}
+      >
+      </div>
     </div>
+
+    <div className="container">
+      <Features gridItems={intro.blurbs} />
+    </div>
+
     <section className="section section--gradient">
       <div className="container">
         <div className="section">
@@ -86,23 +63,22 @@ export const IndexPageTemplate = ({
                     <p>{description}</p>
                   </div>
                 </div>
-                <Features gridItems={intro.blurbs} />
                 <div className="columns">
                   <div className="column is-12 has-text-centered">
                     <Link className="btn" to="/products">
                       See all products
-                    </Link>
+                      </Link>
                   </div>
                 </div>
                 <div className="column is-12">
                   <h3 className="has-text-weight-semibold is-size-2">
                     Latest stories
-                  </h3>
+                    </h3>
                   <BlogRoll />
                   <div className="column is-12 has-text-centered">
                     <Link className="btn" to="/blog">
                       Read more
-                    </Link>
+                      </Link>
                   </div>
                 </div>
               </div>
@@ -183,6 +159,9 @@ export const pageQuery = graphql`
               }
             }
             text
+            header
+            linkText
+            linkUrl
           }
           heading
           description
