@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-title: When to use a two page login
+title: When to use a two page login sucka
 date: 2020-10-30T02:46:41.870Z
 description: Why are more apps using two separate pages to log in? Learn about
   the two page design pattern and when to use it in your apps
