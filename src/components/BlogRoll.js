@@ -88,9 +88,11 @@ const BlogRollPage = () => (
                 featuredpost
                 featuredimage {
                   childImageSharp {
-                    fluid(maxWidth: 120, quality: 100) {
-                      ...GatsbyImageSharpFluid
-                    }
+                    gatsbyImageData(
+                      width: 120
+                      quality: 100
+                      layout: CONSTRAINED
+                    )
                   }
                 }
               }
