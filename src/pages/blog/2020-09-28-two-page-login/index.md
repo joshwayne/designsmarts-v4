@@ -1,23 +1,20 @@
 ---
 templateKey: blog-post
-title: 'When to use a two page login'
+title: When to use a two page login
 date: 2020-10-30T02:46:41.870Z
-description: 'Why are more apps using two separate pages to log in? Learn about the two page design pattern and when to use it in your apps'
+description: Why are more apps using two separate pages to log in? Learn about
+  the two page design pattern and when to use it in your apps
 featuredpost: false
 featuredimage: cover.jpg
 tags:
-  - ux 
+  - ux
   - patterns
   - ui
   - login
 ---
-
-
 If you’d paid attention to login forms recently, you’ve probably noticed a growing number of apps have switched from a traditional email and password login page to a two page login that has the email and password fields on separate pages (sometimes called the “two step login”, “two page login”, or “that annoying login thing Google is doing”)
 
 ![Before and after two page login](before-after-logins.png)
-
-<%= partial(:picture, :locals => { :path => "/two-page-login/before-after-logins", :alt_text => "Before and after two page login", :style_class => "bleed", :width => "", :type => "png" }) %>
 
 Why are more apps using this design pattern?
 
@@ -119,7 +116,6 @@ So on the next page, I’m only presented with Twitter to finish my login.
 
 <%= partial(:picture, :locals => { :path => "/two-page-login/ph-new-2", :alt_text => "Social logins", :caption => "", :width => "", :style_class => "", :type => "png" }) %>
 
-
 If the user created an account with a third party service, only show them that service on the next step. If they didn’t use any service, ask for their password.
 
 The pattern also allows for more options for added security. This pattern can easily include additional steps like two factor authentication, anti-phishing photo verification, or redirecting potential bot accounts to a captcha test.
@@ -129,7 +125,6 @@ The pattern also allows for more options for added security. This pattern can ea
 Our student scenario would work much the same way. The student makes the incorrect assumption that they should go to gmail.com to check their email. But instead of an error, they would get redirected to their university login page.
 
 This pattern embodies one of the principles of good UX: direct users where to go rather than giving them roadblocks.
-
 
 ### Negatives of the two page login pattern
 
