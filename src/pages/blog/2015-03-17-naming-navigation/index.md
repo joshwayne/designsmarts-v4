@@ -1,8 +1,8 @@
 ---
 templateKey: blog-post
 title: Should I use nouns or verbs when naming navigation?
-published: 2015-03-17
-updated: 2015-03-17
+date: 2015-03-17T02:46:41.870Z
+updated: 2015-03-17T02:46:41.870Z
 featuredpost: false
 featuredimage: cover.jpg
 tags:

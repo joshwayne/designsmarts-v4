@@ -1,8 +1,8 @@
 ---
 templateKey: blog-post
 title: How to improve user submitted content
-published: 2015-05-21
-updated: 2015-05-21
+date: 2015-05-21T02:46:41.870Z
+updated: 2015-05-21T02:46:41.870Z
 tags:
 description: "When creating an app with community content, the success of your app depends on the quality of the content created by your users. Here’s some strategies for improving and maintaining high quality community content."
 alt_summary: "Some strategies for improving and maintaining high quality community content."

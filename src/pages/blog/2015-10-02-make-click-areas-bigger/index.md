@@ -1,8 +1,8 @@
 ---
 templateKey: blog-post
 title: Make click areas bigger for better usability
-published: 2015-10-02
-updated: 2015-10-02
+date: 2015-10-02T02:46:41.870Z
+updated: 2015-10-02T02:46:41.870Z
 description: "Quick usability tip for y’all: Make your click areas bigger."
 alt_summary: "Quick usability tip for y’all: Make your click areas bigger."
 tags:

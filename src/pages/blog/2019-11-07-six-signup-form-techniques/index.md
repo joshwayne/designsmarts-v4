@@ -3,8 +3,8 @@ templateKey: blog-post
 title: 'Six signup form techniques to convert more customers'
 description: 'Your signup form could be the thing keeping potential paying customers from ever giving your product an honest try.'
 alt_summary: 'Your signup form could be the thing keeping potential paying customers from ever giving your product an honest try.'
-date: 2019-11-07
-updated: 2019-11-07
+date: 2019-11-07T02:46:41.870Z
+updated: 2019-11-07T02:46:41.870Z
 featuredpost: false
 featuredimage: cover.jpg
 tags:
