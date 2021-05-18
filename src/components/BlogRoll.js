@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link, graphql, StaticQuery } from "gatsby";
 import PreviewCompatibleImage from "./PreviewCompatibleImage";
+import Img from "gatsby-image"
 
 class BlogRoll extends React.Component {
   render() {
@@ -9,18 +10,12 @@ class BlogRoll extends React.Component {
     const { edges: posts } = data.allMarkdownRemark;
 
     return (
-      <div className="">
+      <div className="container--narrow">
         {posts &&
           posts.map(({ node: post }) => (
-            <div className="is-parent column is-6" key={post.id}>
-              <article
-                className={`blog-list-item tile is-child box notification ${
-                  post.frontmatter.featuredpost ? "is-featured" : ""
-                }`}
-              >
-                <header>
+            <div className="blog-post" key={post.id}>
                   {post.frontmatter.featuredimage ? (
-                    <div className="featured-thumbnail">
+                    <div className="blog-post--image">
                       <PreviewCompatibleImage
                         imageInfo={{
                           image: post.frontmatter.featuredimage,
@@ -29,28 +24,23 @@ class BlogRoll extends React.Component {
                       />
                     </div>
                   ) : null}
-                  <p className="post-meta">
+                  <div className="blog-post--text">
+                    <p 
+                      className="blog-post--type"
+                      // className={`blog-list-item tile is-child box notification ${post.frontmatter.featuredpost ? "is-featured" : ""}`}
+                    >
+                      Article
+                    </p>
                     <Link
-                      className="title has-text-primary is-size-4"
+                      className="header--medium"
                       to={post.fields.slug}
                     >
                       {post.frontmatter.title}
                     </Link>
-                    <span> &bull; </span>
-                    <span className="subtitle is-size-5 is-block">
-                      {post.frontmatter.date}
-                    </span>
-                  </p>
-                </header>
-                <p>
-                  {post.excerpt}
-                  <br />
-                  <br />
-                  <Link className="button" to={post.fields.slug}>
-                    Keep Reading →
-                  </Link>
-                </p>
-              </article>
+                    <p className="blog-post--excerpt">
+                      {post.excerpt}
+                    </p>
+                  </div>
             </div>
           ))}
       </div>
@@ -76,7 +66,7 @@ const BlogRollPage = () => (
         ) {
           edges {
             node {
-              excerpt(pruneLength: 400)
+              excerpt(pruneLength: 140)
               id
               fields {
                 slug
@@ -89,7 +79,7 @@ const BlogRollPage = () => (
                 featuredimage {
                   childImageSharp {
                     gatsbyImageData(
-                      width: 120
+                      width: 300
                       quality: 100
                       layout: CONSTRAINED
                     )
