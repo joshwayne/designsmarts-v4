@@ -1,23 +1,20 @@
 ---
 templateKey: blog-post
-title: 'When to use a two page login'
+title: When to use a two page login
 date: 2020-10-30T02:46:41.870Z
-description: 'Why are more apps using two separate pages to log in? Learn about the two page design pattern and when to use it in your apps'
+description: Why are more apps using two separate pages to log in? Learn about
+  the two page design pattern and when to use it in your apps
 featuredpost: false
 featuredimage: cover.jpg
 tags:
-  - ux 
+  - ux
   - patterns
   - ui
   - login
 ---
-
-
 If you’d paid attention to login forms recently, you’ve probably noticed a growing number of apps have switched from a traditional email and password login page to a two page login that has the email and password fields on separate pages (sometimes called the “two step login”, “two page login”, or “that annoying login thing Google is doing”)
 
-![Before and after two page login](before-after-logins.png)
-
-<%= partial(:picture, :locals => { :path => "/two-page-login/before-after-logins", :alt_text => "Before and after two page login", :style_class => "bleed", :width => "", :type => "png" }) %>
+![Before and after two page login](./before-after-logins.png)
 
 Why are more apps using this design pattern?
 
@@ -43,11 +40,11 @@ Great solution right? Well, in theory. Turns out this solution brought its own s
 
 Login pages went from this…
 
-<%= partial(:picture, :locals => { :path => "/two-page-login/traditional-login", :alt_text => "Traditional login", :width => "416px", :style_class => "", :type => "png" }) %>
+![Traditional login](./traditional-login.png){ width: "416px" }
 
 To this…
 
-<%= partial(:picture, :locals => { :path => "/two-page-login/social-logins", :alt_text => "Social logins", :style_class => "", :width => "720px", :type => "png" }) %>
+![Social logins](social-logins.png){ width: "720px" }
 
 Not only does it look busy but usability testing showed it also introduced a slew of usability problems:
 
@@ -65,13 +62,14 @@ But the worst and my personal pet peeve…
 
 I’ll illustrate with a personal experience. Last week, I went to check out Product Hunt. I saw a cool product and wanted to upvote it. I hadn’t been on the site in a long time so I was presented with the login page.
 
-<%= partial(:picture, :locals => { :path => "/two-page-login/ph-1", :alt_text => "Social logins", :caption => "", :width => "", :style_class => "bleed", :type => "png" }) %>
+![Social logins](./ph-1.png){}
 
-<%= partial(:picture, :locals => { :path => "/two-page-login/ph-2", :alt_text => "Social logins", :caption => "", :width => "", :style_class => "bleed", :type => "png" }) %>
+![Social logins](./ph-2.png){}
 
-<%= partial(:picture, :locals => { :path => "/two-page-login/ph-3", :alt_text => "Social logins", :caption => "", :width => "", :style_class => "bleed", :type => "png" }) %>
+![Social logins](./ph-3.png){}
 
-<%= partial(:picture, :locals => { :path => "/two-page-login/ph-4", :alt_text => "Social logins", :caption => "", :width => "", :style_class => "bleed", :type => "png" }) %>
+![Social logins](./ph-4.png){}
+
 
 It successfully logged me in but this looks like a new account. So I logged out and tried Twitter. Boom, there’s all my saved items and followers. What the hell happened?
 
@@ -105,20 +103,19 @@ The Google research team developed a new pattern to address many of the usabilit
 
 It looks like a simple change but there’s some magic happening under the hood. Let’s take our example from Product Hunt and redesign it using a federated login. Remember the old login page looked like this…
 
-<%= partial(:picture, :locals => { :path => "/two-page-login/ph-login", :alt_text => "Social logins", :caption => "", :width => "", :style_class => "", :type => "png" }) %>
+![Social logins](./ph-login.png)
 
 Redesigning it with a federated login would look something like this:
 
-<%= partial(:picture, :locals => { :path => "/two-page-login/ph-new-1", :alt_text => "Social logins", :caption => "", :width => "", :style_class => "", :type => "png" }) %>
+![Social logins](./ph-new-1.png)
 
 Now if I enter my email and click next, here’s what happens: Product Hunt is going to check with the different authentication providers to see if any of them recognize my email…
 
-<%= partial(:picture, :locals => { :path => "/two-page-login/social-check", :alt_text => "Social logins", :caption => "", :width => "", :style_class => "bleed", :type => "png" }) %>
+![Social logins](./social-check.png)
 
 So on the next page, I’m only presented with Twitter to finish my login.
 
-<%= partial(:picture, :locals => { :path => "/two-page-login/ph-new-2", :alt_text => "Social logins", :caption => "", :width => "", :style_class => "", :type => "png" }) %>
-
+![Social logins](./ph-new-2.png)
 
 If the user created an account with a third party service, only show them that service on the next step. If they didn’t use any service, ask for their password.
 
@@ -129,7 +126,6 @@ The pattern also allows for more options for added security. This pattern can ea
 Our student scenario would work much the same way. The student makes the incorrect assumption that they should go to gmail.com to check their email. But instead of an error, they would get redirected to their university login page.
 
 This pattern embodies one of the principles of good UX: direct users where to go rather than giving them roadblocks.
-
 
 ### Negatives of the two page login pattern
 

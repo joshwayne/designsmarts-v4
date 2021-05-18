@@ -2,8 +2,8 @@
 templateKey: blog-post
 title: Why you should allow users to see their password
 description: Why the confirm password field needs to die.
-published: 2016-05-24
-updated: 2016-05-24
+date: 2016-05-24T02:46:41.870Z
+updated: 2016-05-24T02:46:41.870Z
 cover_credit: 'Photo by <a href="https://unsplash.com/photos/zEFyM4sulJ8?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Matthew Brodeur</a> on <a href="https://unsplash.com">Unsplash</a>'
 featuredpost: false
 featuredimage: cover.jpg

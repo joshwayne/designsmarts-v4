@@ -3,8 +3,8 @@ templateKey: blog-post
 title: 'Do you need to learn how to code to be a UI/UX Designer?'
 description: 'So maybe you’ve looked at a few job postings for designers and found coding popping up in the list of required skills...'
 alt_summary: 'So maybe you’ve looked at a few job postings for designers and found coding popping up in the list of required skills.'
-published: 2019-05-02
-updated: 2019-05-02
+date: 2019-05-02T02:46:41.870Z
+updated: 2019-05-02T02:46:41.870Z
 cover_credit: 'Photo by <a href="https://unsplash.com/photos/pgSkeh0yl8o?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Christopher Robin Ebbinghaus</a> on <a href="https://unsplash.com">Unsplash</a>'
 featuredpost: false
 featuredimage: cover.jpg

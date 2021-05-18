@@ -4,7 +4,7 @@ title: 'The seeking behaviors'
 description: 'When people are looking for information on a website, they usually fall into one of these categories.'
 alt_summary: 'When people are looking for information on a website, they usually fall into one of these categories.'
 date: 2020-03-20T02:46:41.870Z
-updated: 2020-03-20
+updated: 2020-03-20T02:46:41.870Z
 cover_credit: 'Photo by <a href="https://unsplash.com/@dizzyd718?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Drew Graham</a> on <a href="https://unsplash.com">Unsplash</a>'
 featuredpost: false
 featuredimage: cover.jpg

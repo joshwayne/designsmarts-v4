@@ -1,8 +1,8 @@
 ---
 templateKey: blog-post
 title: Confirm or undo? Which is the better option?
-published: 2016-01-15
-updated: 2016-01-15
+date: 2016-01-15T02:46:41.870Z
+updated: 2016-01-15T02:46:41.870Z
 tags:
 description: "Despite its popularity, using a confirm dialog is wrong in 90% of instances."
 alt_summary: "Despite its popularity, using a confirm dialog is wrong in 90% of instances. Here's why."

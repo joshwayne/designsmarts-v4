@@ -3,8 +3,8 @@ templateKey: blog-post
 title: 'The problem with dropdown fields (and what you should use instead)'
 description: 'The dropdown is often used in a way that makes user input more difficult. Learn about the advantages and disadvantages of using them.'
 alt_summary: 'The dropdown is often used in a way that makes user input more difficult. Learn about the advantages and disadvantages of using them.'
-published: 2019-05-09
-updated: 2019-05-09
+date: 2019-05-09T02:46:41.870Z
+updated: 2019-05-09T02:46:41.870Z
 featuredpost: false
 featuredimage: cover.jpg
 tags:
