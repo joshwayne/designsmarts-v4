@@ -6,7 +6,7 @@
 }
 
 body {
-  font-size: 15px;
+  font-size: 18px;
   font-family: "TT Norms Pro", sans-serif;
   color: $grey-900;
   line-height: 1.5em;
@@ -84,23 +84,6 @@ body {
   max-width: 32rem;
 }
 
-.blog-item {
-
-}
-
-.blog-item--content {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.blog-item--image {
-  width: 190px;
-}
-
-.blog-item--text {
-  
-}
 .container--medium {
     margin: 0 auto;
     max-width: 1080px;

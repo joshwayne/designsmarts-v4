@@ -157,23 +157,6 @@ export const pageQuery = graphql`query IndexPageTemplate {
         }
         heading
         description
-        intro {
-          blurbs {
-            image {
-              childImageSharp {
-                fluid(maxWidth: 240, quality: 64) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            text
-            header
-            linkText
-            linkUrl
-          }
-          heading
-          description
-        }
       }
     }
   }

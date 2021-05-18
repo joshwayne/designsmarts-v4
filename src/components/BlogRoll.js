@@ -11,38 +11,36 @@ class BlogRoll extends React.Component {
 
     return (
       <div className="container--narrow">
-        {posts &&
-          posts.map(({ node: post }) => (
-            <div className="blog-post" key={post.id}>
-                  {post.frontmatter.featuredimage ? (
-                    <div className="blog-post--image">
-                      <PreviewCompatibleImage
-                        imageInfo={{
-                          image: post.frontmatter.featuredimage,
-                          alt: `featured image thumbnail for post ${post.frontmatter.title}`,
-                        }}
-                      />
-                    </div>
-                  ) : null}
-                  <div className="blog-post--text">
-                    <p 
-                      className="blog-post--type"
-                      // className={`blog-list-item tile is-child box notification ${post.frontmatter.featuredpost ? "is-featured" : ""}`}
-                    >
-                      Article
-                    </p>
-                    <Link
-                      className="header--medium"
-                      to={post.fields.slug}
-                    >
-                      {post.frontmatter.title}
-                    </Link>
-                    <p className="blog-post--excerpt">
-                      {post.excerpt}
-                    </p>
-                  </div>
+        {posts && posts.map(({ node: post }) => (
+          <div className="blog-post" key={post.id}>
+            {post.frontmatter.featuredimage ? (
+              <div className="blog-post--image">
+                <PreviewCompatibleImage
+                  imageInfo={{
+                    image: post.frontmatter.featuredimage,
+                    alt: `featured image thumbnail for post ${post.frontmatter.title}`,
+                  }}
+                />
+              </div>
+            ) : null}
+            <div className="blog-post--text">
+              <p
+                className="blog-post--type"
+              // className={`blog-list-item tile is-child box notification ${post.frontmatter.featuredpost ? "is-featured" : ""}`}
+              >
+                Article
+              </p>
+              <Link
+                className="header--medium"
+                to={post.fields.slug}
+              >
+                {post.frontmatter.title}
+              </Link>
+              <p className="blog-post--excerpt">
+                {post.excerpt}
+              </p>
             </div>
-          </Link>
+          </div>
         ))
         }
       </div>
