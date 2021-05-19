@@ -12,16 +12,19 @@ class BlogRoll extends React.Component {
     return (
       <div className="container--narrow">
         {posts && posts.map(({ node: post }) => (
-          <div className="blog-post" key={post.id}>
+          <Link 
+            className="blog-post" 
+            key={post.id}
+            to={post.fields.slug}
+          >
             {post.frontmatter.featuredimage ? (
-              <div className="blog-post--image">
-                <PreviewCompatibleImage
-                  imageInfo={{
-                    image: post.frontmatter.featuredimage,
-                    alt: `featured image thumbnail for post ${post.frontmatter.title}`,
-                  }}
-                />
-              </div>
+              <PreviewCompatibleImage
+                imageInfo={{
+                  image: post.frontmatter.featuredimage,
+                  alt: `featured image thumbnail for post ${post.frontmatter.title}`,
+                  className: `blog-post--image`,
+                }}
+              />
             ) : null}
             <div className="blog-post--text">
               <p
@@ -30,17 +33,14 @@ class BlogRoll extends React.Component {
               >
                 Article
               </p>
-              <Link
-                className="header--medium"
-                to={post.fields.slug}
-              >
+              <h3 className="header--medium">
                 {post.frontmatter.title}
-              </Link>
+              </h3>
               <p className="blog-post--excerpt">
                 {post.excerpt}
               </p>
             </div>
-          </div>
+          </Link>
         ))
         }
       </div>
@@ -79,7 +79,7 @@ const BlogRollPage = () => (
                 featuredimage {
                   childImageSharp {
                     gatsbyImageData(
-                      width: 300
+                      width: 400
                       quality: 100
                       layout: CONSTRAINED
                     )

@@ -6,7 +6,7 @@
 }
 
 body {
-  font-size: 18px;
+  font-size: 16px;
   font-family: "TT Norms Pro", sans-serif;
   color: $grey-900;
   line-height: 1.5em;
@@ -101,7 +101,7 @@ body {
 }
 
 .header--medium {
-    font-size: 2.4rem;
+    font-size: 2rem;
     color: $grey-900;
     font-weight: bold;
     text-decoration: none;
@@ -115,14 +115,16 @@ body {
     flex-direction: row;
     align-items: center;
     margin-bottom: 4rem;
+    text-decoration: none;
 }
 
 .blog-post--image {
     mask: url(../img/blob1.svg);
     mask-repeat: no-repeat;
-    mask-size: 180px;
+    mask-size: 200px;
     min-width: 200px;
-    padding-right: 2rem;
+    min-height: 200px;
+    margin-right: 2rem;
 }
 
 .blog-post--type {
@@ -140,7 +142,7 @@ body {
 }
 
 .blog-post--excerpt {
-    font-size: 1.33rem;
+    // font-size: 1.25rem;
     line-height: 150%;
     color: $grey-600;
 }
