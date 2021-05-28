@@ -1,5 +1,5 @@
 ---
-templateKey: design-pattern
+templateKey: design-pattern-category
 title: Account Creation and Onboarding
 description: Here's a description
 ---

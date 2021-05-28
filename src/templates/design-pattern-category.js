@@ -6,7 +6,7 @@ import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 
-export const DesignPatternTemplate = ({
+export const DesignPatternCategoryTemplate = ({
   content,
   contentComponent,
   description,
@@ -26,6 +26,18 @@ export const DesignPatternTemplate = ({
             </h1>
             <p>{description}</p>
             <PostContent content={content} />
+            {tags && tags.length ? (
+              <div style={{ marginTop: `4rem` }}>
+                <h4>Tags</h4>
+                <ul className="taglist">
+                  {tags.map((tag) => (
+                    <li key={tag + `tag`}>
+                      <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
           </div>
         </div>
       </div>
@@ -33,7 +45,7 @@ export const DesignPatternTemplate = ({
   )
 }
 
-DesignPatternTemplate.propTypes = {
+DesignPatternCategoryTemplate.propTypes = {
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
@@ -41,12 +53,12 @@ DesignPatternTemplate.propTypes = {
   helmet: PropTypes.object,
 }
 
-const DesignPattern = ({ data }) => {
+const DesignPatternCategory = ({ data }) => {
   const { markdownRemark: post } = data
 
   return (
     <Layout>
-      <DesignPatternTemplate
+      <DesignPatternCategoryTemplate
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
@@ -65,16 +77,16 @@ const DesignPattern = ({ data }) => {
   )
 }
 
-DesignPattern.propTypes = {
+DesignPatternCategory.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
   }),
 }
 
-export default DesignPattern
+export default DesignPatternCategory
 
 export const pageQuery = graphql`
-  query DesignPatternByID($id: String!) {
+  query DesignPatternCategoryByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       html

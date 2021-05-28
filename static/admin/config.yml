@@ -23,6 +23,27 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "markdown"}
       - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Other names", name: "otherNames", widget: "string"}
+      - label: "Categories"
+        name: "categories"
+        multiple: true
+        widget: "relation"
+        collection: "patternCategories"
+        search_fields: ["title"]
+        value_field: "id"
+        display_fields: ["title"]
+
+  - name: "patternCategories"
+    label: "Pattern Categories"
+    folder: "src/pages/pattern-categories"
+    path: '{{slug}}/index'
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "design-pattern-category"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "markdown"}
+      - {label: "Body", name: "body", widget: "markdown"}
 
   - name: "blog"
     label: "Blog"
