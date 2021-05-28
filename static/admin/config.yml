@@ -30,7 +30,16 @@ collections:
         widget: "relation"
         collection: "patternCategories"
         search_fields: ["title"]
-        value_field: "id"
+        value_field: "{{slug}}"
+        display_fields: ["title"]
+      - label: "Related Patterns"
+        name: "relatedPatterns"
+        multiple: true
+        widget: "relation"
+        required: false
+        collection: "patterns"
+        search_fields: ["title"]
+        value_field: "{{slug}}"
         display_fields: ["title"]
 
   - name: "patternCategories"
