@@ -5,7 +5,7 @@ description: Magic Link is an authentication method where a user is emailed a
   link that will log them in instantly.
 otherNames: log in link, authentication link
 categories:
-  - Account Creation and Onboarding
+  - account-creation-and-onboarding-2/index
 ---
 ### Benefits
 
