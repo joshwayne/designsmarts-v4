@@ -12,6 +12,18 @@ media_folder: static/img
 public_folder: /img
 
 collections:
+  - name: "patterns"
+    label: "Patterns"
+    folder: "src/pages/patterns"
+    path: '{{slug}}/index'
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "design-pattern"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "markdown"}
+      - {label: "Body", name: "body", widget: "markdown"}
+
   - name: "blog"
     label: "Blog"
     folder: "src/pages/blog"
