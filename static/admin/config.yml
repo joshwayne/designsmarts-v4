@@ -14,6 +14,7 @@ public_folder: /img
 collections:
   - name: "patterns"
     label: "Patterns"
+    label_singular: "Pattern"
     folder: "src/pages/patterns"
     path: '{{slug}}/index'
     create: true
@@ -44,6 +45,7 @@ collections:
 
   - name: "patternCategories"
     label: "Pattern Categories"
+    label_singular: "Pattern Category"
     folder: "src/pages/pattern-categories"
     path: '{{slug}}/index'
     create: true
@@ -107,3 +109,48 @@ collections:
           - {label: Testimonials, name: testimonials, widget: list, fields: [{label: Quote, name: quote, widget: string}, {label: Author, name: author, widget: string}]}
           - {label: Full_image, name: full_image, widget: image}
           - {label: Pricing, name: pricing, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: string}, {label: Plans, name: plans, widget: list, fields: [{label: Plan, name: plan, widget: string}, {label: Price, name: price, widget: string}, {label: Description, name: description, widget: string}, {label: Items, name: items, widget: list}]}]}
+
+  - name: "pagedesigns"
+    label: "Page Designs"
+    label_singular: "Page Design"
+    folder: "src/pages/page-designs"
+    path: '{{company}}/{{slug}}/index'
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "screenshot"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date taken", name: "dateTaken", widget: "datetime"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Image", name: "image", widget: image}
+      - label: "Company"
+        name: "company"
+        widget: "relation"
+        required: true
+        collection: "companies"
+        search_fields: ["title"]
+        value_field: "{{slug}}"
+        display_fields: ["title"]
+      - label: "Patterns in use"
+        name: "patternsInUse"
+        multiple: true
+        widget: "relation"
+        required: false
+        collection: "patterns"
+        search_fields: ["title"]
+        value_field: "{{slug}}"
+        display_fields: ["title"]
+
+  - name: "companies"
+    label: "Companies"
+    label_singular: "Company"
+    folder: "src/pages/companies"
+    path: '{{slug}}/index'
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "company"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Logo", name: "logo", widget: image}
+    
