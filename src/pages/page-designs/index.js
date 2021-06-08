@@ -1,6 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { Link, graphql } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Layout from "../../components/Layout";
 
 const PageDesignsPage = ({
@@ -24,6 +25,7 @@ const PageDesignsPage = ({
               pageDesigns.map(({ node: pageDesign }) => (
                 <div key={pageDesign.id}>
                   <Link to={pageDesign.fields.slug}>
+                    <GatsbyImage image={getImage(pageDesign.frontmatter.image)} alt={pageDesign.frontmatter.title} />
                     {pageDesign.frontmatter.title}
                   </Link>
                 </div>
@@ -46,29 +48,22 @@ export const pageDesignsPageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
-      filter: { frontmatter: { templateKey: { eq: "page-design" } } }
+      filter: {frontmatter: {templateKey: {eq: "page-design"}}}
+      sort: {order: DESC, fields: frontmatter___date}
     ) {
       edges {
         node {
           id
-          fields {
-            slug
-          }
           frontmatter {
             title
             image {
-              childrenImageSharp {
-                fixed(width: 400) {
-                  base64
-                  tracedSVG
-                  aspectRatio
-                  srcWebp
-                  srcSetWebp
-                  originalName
-                }
+              childImageSharp {
+                gatsbyImageData(width: 400, placeholder: BLURRED)
               }
             }
+          }
+          fields {
+            slug
           }
         }
       }
