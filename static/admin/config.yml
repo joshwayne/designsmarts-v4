@@ -118,7 +118,7 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "screenshot"}
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "page-design"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Date taken", name: "dateTaken", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}

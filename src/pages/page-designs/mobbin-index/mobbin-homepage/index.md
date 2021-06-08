@@ -1,5 +1,5 @@
 ---
-templateKey: screenshot
+templateKey: page-design
 title: Mobbin Homepage
 dateTaken: 2021-06-07T05:31:52.899Z
 description: mobbin homepage
