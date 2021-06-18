@@ -31,6 +31,9 @@ exports.createPages = ({ actions, graphql }) => {
 
     const posts = result.data.allMarkdownRemark.edges
 
+    const patterns = posts.filter(post => post.node.frontmatter.templateKey === 'design-pattern');
+
+
     posts.forEach((edge) => {
       const id = edge.node.id
       createPage({
@@ -42,6 +45,7 @@ exports.createPages = ({ actions, graphql }) => {
         // additional data can be passed via context
         context: {
           id,
+          patterns: patterns.find((pattern) => pattern.node.frontmatter.categories === edge.node.frontmatter.title)
         },
       })
     })
@@ -74,16 +78,6 @@ exports.createPages = ({ actions, graphql }) => {
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
-  // fmImagesToRelative(node) // convert image paths for gatsby images
-
-  // if (node.internal.type === `MarkdownRemark`) {
-  //   const value = createFilePath({ node, getNode })
-  //   createNodeField({
-  //     name: `slug`,
-  //     node,
-  //     value,
-  //   })
-  // }
 
   if (node.internal.type === `MarkdownRemark`) {
     const slug = createFilePath({ node, getNode, basePath: `pages` })
@@ -93,4 +87,49 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       value: slug,
     })
   }
+}
+
+// we use sourceNodes instead of onCreateNode because at this time plugins
+// will have created all nodes already and we can link both books to authors
+// and reverse link on authors to books
+exports.sourceNodes = ({ boundActionCreators, getNodes, getNode }) => {
+  const { createNodeField } = boundActionCreators
+
+  const booksOfAuthors = {}
+  // iterate thorugh all markdown nodes to link books to author
+  // and build author index
+  const markdownNodes = getNodes()
+    .filter(node => node.internal.type === `MarkdownRemark`)
+    .forEach(node => {
+      if (node.frontmatter.author) {
+        const authorNode = getNodes().find(
+          node2 =>
+            node2.internal.type === `MarkdownRemark` &&
+            node2.frontmatter.title === node.frontmatter.author
+        )
+
+        if (authorNode) {
+          createNodeField({
+            node,
+            name: `author`,
+            value: authorNode.id,
+          })
+
+          // if it's first time for this author init empty array for his books
+          if (!(authorNode.id in booksOfAuthors)) {
+            booksOfAuthors[authorNode.id] = []
+          }
+          // add book to this author
+          booksOfAuthors[authorNode.id].push(node.id)
+        }
+      }
+    })
+
+  Object.entries(booksOfAuthors).forEach(([authorNodeId, bookIds]) => {
+    createNodeField({
+      node: getNode(authorNodeId),
+      name: `books`,
+      value: bookIds,
+    })
+  })
 }
