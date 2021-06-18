@@ -5,5 +5,8 @@
     "featuredimage",
     "featuredpost",
     "pagedesigns"
+  ],
+  "cSpell.ignoreWords": [
+    "purgecss"
   ]
 }

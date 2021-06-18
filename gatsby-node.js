@@ -1,10 +1,10 @@
-const _ = require('lodash')
-const path = require('path')
-const { createFilePath } = require('gatsby-source-filesystem')
-const { fmImagesToRelative } = require('gatsby-remark-relative-images')
+const _ = require("lodash");
+const path = require("path");
+const { createFilePath } = require("gatsby-source-filesystem");
+const { fmImagesToRelative } = require("gatsby-remark-relative-images");
 
 exports.createPages = ({ actions, graphql }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
 
   return graphql(`
     {
@@ -25,17 +25,18 @@ exports.createPages = ({ actions, graphql }) => {
     }
   `).then((result) => {
     if (result.errors) {
-      result.errors.forEach((e) => console.error(e.toString()))
-      return Promise.reject(result.errors)
+      result.errors.forEach((e) => console.error(e.toString()));
+      return Promise.reject(result.errors);
     }
 
-    const posts = result.data.allMarkdownRemark.edges
+    const posts = result.data.allMarkdownRemark.edges;
 
-    const patterns = posts.filter(post => post.node.frontmatter.templateKey === 'design-pattern');
-
+    const patterns = posts.filter(
+      (post) => post.node.frontmatter.templateKey === "design-pattern"
+    );
 
     posts.forEach((edge) => {
-      const id = edge.node.id
+      const id = edge.node.id;
       createPage({
         path: edge.node.fields.slug,
         tags: edge.node.frontmatter.tags,
@@ -45,25 +46,29 @@ exports.createPages = ({ actions, graphql }) => {
         // additional data can be passed via context
         context: {
           id,
-          patterns: patterns.find((pattern) => pattern.node.frontmatter.categories === edge.node.frontmatter.title)
+          patterns: patterns.find(
+            (pattern) =>
+              pattern.node.frontmatter.categories ===
+              edge.node.frontmatter.title
+          ),
         },
-      })
-    })
+      });
+    });
 
     // Tag pages:
-    let tags = []
+    let tags = [];
     // Iterate through each post, putting all found tags into `tags`
     posts.forEach((edge) => {
       if (_.get(edge, `node.frontmatter.tags`)) {
-        tags = tags.concat(edge.node.frontmatter.tags)
+        tags = tags.concat(edge.node.frontmatter.tags);
       }
-    })
+    });
     // Eliminate duplicate tags
-    tags = _.uniq(tags)
+    tags = _.uniq(tags);
 
     // Make tag pages
     tags.forEach((tag) => {
-      const tagPath = `/tags/${_.kebabCase(tag)}/`
+      const tagPath = `/tags/${_.kebabCase(tag)}/`;
 
       createPage({
         path: tagPath,
@@ -71,65 +76,92 @@ exports.createPages = ({ actions, graphql }) => {
         context: {
           tag,
         },
-      })
-    })
-  })
-}
+      });
+    });
+  });
+};
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions
+  const { createNodeField } = actions;
 
   if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: `pages` })
+    const slug = createFilePath({ node, getNode, basePath: `pages` });
     createNodeField({
       node,
       name: `slug`,
       value: slug,
-    })
+    });
   }
-}
+};
 
 // we use sourceNodes instead of onCreateNode because at this time plugins
-// will have created all nodes already and we can link both books to authors
-// and reverse link on authors to books
-exports.sourceNodes = ({ boundActionCreators, getNodes, getNode }) => {
-  const { createNodeField } = boundActionCreators
+// will have created all nodes already and we can link both patterns to categories
+// and reverse link on categories to patterns
+exports.sourceNodes = ({ actions, getNodes, getNode }) => {
+  const { createNodeField } = actions;
 
-  const booksOfAuthors = {}
-  // iterate thorugh all markdown nodes to link books to author
-  // and build author index
+  const patternsOfCategories = {};
+  const categoriesOfPatterns = {}; // reverse index
+
+  // as we can have multiple categories for a pattern, we should handle both cases
+  // both when category is specified as single item and when there is list of categories
+  // abstracting it to helper function help prevent code duplication
+  const getCategoryNodeByName = (name) =>
+    getNodes().find(
+      (node2) =>
+        node2.internal.type === `MarkdownRemark` &&
+        node2.frontmatter.title === name
+    );
+
+  // iterate through all markdown nodes to link patterns to category
+  // and build category index
   const markdownNodes = getNodes()
-    .filter(node => node.internal.type === `MarkdownRemark`)
-    .forEach(node => {
-      if (node.frontmatter.author) {
-        const authorNode = getNodes().find(
-          node2 =>
-            node2.internal.type === `MarkdownRemark` &&
-            node2.frontmatter.title === node.frontmatter.author
-        )
+    .filter((node) => node.internal.type === `MarkdownRemark`)
+    .forEach((node) => {
+      if (node.frontmatter.categories) {
+        const categoryNodes =
+          node.frontmatter.categories instanceof Array
+            ? node.frontmatter.categories.map(getCategoryNodeByName) // get array of nodes
+            : [getCategoryNodeByName(node.frontmatter.categories)]; // get single node and create 1 element array
 
-        if (authorNode) {
-          createNodeField({
-            node,
-            name: `author`,
-            value: authorNode.id,
-          })
+        // filtered not defined nodes and iterate through defined categories nodes to add data to indexes
+        categoryNodes
+          .filter((categoryNode) => categoryNode)
+          .map((categoryNode) => {
+            // if it's first time for this category init empty array for this pattern
+            if (!(categoryNode.id in patternsOfCategories)) {
+              patternsOfCategories[categoryNode.id] = [];
+            }
+            // add pattern to this category
+            patternsOfCategories[categoryNode.id].push(node.id);
 
-          // if it's first time for this author init empty array for his books
-          if (!(authorNode.id in booksOfAuthors)) {
-            booksOfAuthors[authorNode.id] = []
-          }
-          // add book to this author
-          booksOfAuthors[authorNode.id].push(node.id)
-        }
+            // if it's first time for this pattern, init empty array for its categories
+            if (!(node.id in categoriesOfPatterns)) {
+              categoriesOfPatterns[node.id] = [];
+            }
+            // add category to this pattern
+            categoriesOfPatterns[node.id].push(categoryNode.id);
+          });
       }
-    })
+    });
 
-  Object.entries(booksOfAuthors).forEach(([authorNodeId, bookIds]) => {
-    createNodeField({
-      node: getNode(authorNodeId),
-      name: `books`,
-      value: bookIds,
-    })
-  })
-}
+  Object.entries(patternsOfCategories).forEach(
+    ([categoryNodeId, patternIds]) => {
+      createNodeField({
+        node: getNode(categoryNodeId),
+        name: `patterns`,
+        value: patternIds,
+      });
+    }
+  );
+
+  Object.entries(categoriesOfPatterns).forEach(
+    ([patternNodeId, categoryIds]) => {
+      createNodeField({
+        node: getNode(patternNodeId),
+        name: `categories`,
+        value: categoryIds,
+      });
+    }
+  );
+};
