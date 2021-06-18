@@ -31,7 +31,7 @@ collections:
         widget: "relation"
         collection: "patternCategories"
         search_fields: ["title"]
-        value_field: "{{slug}}"
+        value_field: "{{title}}"
         display_fields: ["title"]
       - label: "Related Patterns"
         name: "relatedPatterns"
