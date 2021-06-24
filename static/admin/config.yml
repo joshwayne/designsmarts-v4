@@ -25,6 +25,7 @@ collections:
       - {label: "Description", name: "description", widget: "markdown"}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Other names", name: "otherNames", widget: "string"}
+      - {label: "Tags", name: "tags", widget: "string"}
       - label: "Categories"
         name: "categories"
         multiple: true

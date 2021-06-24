@@ -1,0 +1,49 @@
+body {
+  font-size: 16px;
+  font-family: "TT Norms Pro", sans-serif;
+  color: $grey-900;
+  line-height: 150%;
+}
+
+.header--xlarge {
+  color: $grey-900;
+  font-size: 3.75rem;
+  font-weight: bold;
+  letter-spacing: -0.01em;
+  line-height: 120%;
+}
+
+.header--large {
+  color: $grey-900;
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: -0.01em;
+  line-height: 120%;
+}
+
+.header--medium {
+  color: $grey-900;
+  display: block;
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 120%;
+  margin: 0 0 1rem;
+}
+
+.header--small {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.header--xsmall {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.text-body-large {
+  font-weight: normal;
+  font-size: 1.33rem;
+  line-height: 150%;
+}

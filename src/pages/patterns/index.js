@@ -1,44 +1,41 @@
-import React from 'react'
-import { kebabCase } from 'lodash'
-import { Helmet } from 'react-helmet'
-import { Link, graphql } from 'gatsby'
-import Layout from '../../components/Layout'
+import React from "react";
+import { Helmet } from "react-helmet";
+import { Link, graphql } from "gatsby";
+import Layout from "../../components/Layout";
 
 const PatternsPage = ({
   data: {
-    allMarkdownRemark: { edges: patterns },
+    allMarkdownRemark: { 
+      edges: categories,
+    },
     site: {
       siteMetadata: { title },
     },
   },
 }) => (
-    <Layout>
-      <section className="section">
-        <Helmet title={`Design Patterns | ${title}`} />
-        <div className="container content">
-          <div className="columns">
-            <div
-              className="column is-10 is-offset-1"
-              style={{ marginBottom: '6rem' }}
-            >
-              <h1 className="title is-size-2 is-bold-light">Design Patterns</h1>
-              <ul className="taglist">
-                {patterns && patterns.map(({ node: pattern }) => (
-                  <li key={pattern.id}>
-                    <Link to={pattern.fields.slug}>
-                      {pattern.frontmatter.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-    </Layout>
-  )
+  <Layout>
+    <div className="container">
+      <Helmet title={`Design Patterns | ${title}`} />
+      <h1 className="header--large">Design Patterns</h1>
 
-export default PatternsPage
+      {categories &&
+        categories.map(({ node: category }) => (
+          <div key={category.id}>
+            <Link to={category.fields.slug} className="header--medium">{category.frontmatter.title}</Link>
+
+            {category.fields.patterns &&
+              category.fields.patterns.map(( pattern ) => (
+                <li>
+                  <Link to={pattern.fields.slug} className="header--xsmall">{pattern.frontmatter.title}</Link>
+                </li>
+              ))}
+          </div>
+        ))}
+    </div>
+  </Layout>
+);
+
+export default PatternsPage;
 
 export const patternsPageQuery = graphql`
   query patternsQuery {
@@ -58,9 +55,17 @@ export const patternsPageQuery = graphql`
           }
           fields {
             slug
+            patterns {
+              frontmatter {
+                title
+              }
+              fields {
+                slug
+              }
+            }
           }
         }
       }
     }
   }
-`
+`;
