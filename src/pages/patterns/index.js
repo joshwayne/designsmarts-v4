@@ -21,12 +21,12 @@ const PatternsPage = ({
       {categories &&
         categories.map(({ node: category }) => (
           <div key={category.id}>
-            <Link to={category.fields.slug} className="header--medium">{category.frontmatter.title}</Link>
+            <Link to={category.fields.slug} className="header--medium no-underline">{category.frontmatter.title}</Link>
 
             {category.fields.patterns &&
               category.fields.patterns.map(( pattern ) => (
                 <li>
-                  <Link to={pattern.fields.slug} className="header--xsmall">{pattern.frontmatter.title}</Link>
+                  <Link to={pattern.fields.slug} className="header--xsmall no-underline">{pattern.frontmatter.title}</Link>
                 </li>
               ))}
           </div>

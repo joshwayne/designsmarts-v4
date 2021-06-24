@@ -3,6 +3,10 @@
 @import "text";
 @import "layout";
 
+.no-underline {
+  text-decoration: none;
+}
+
 // Components
 
 @import "Navbar";
