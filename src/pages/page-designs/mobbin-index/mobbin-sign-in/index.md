@@ -7,4 +7,5 @@ image: mobbin-sign-in-2021-06-06.png
 company: Mobbin
 patternsInUse:
   - Social Media Login
+  - Modal
 ---
