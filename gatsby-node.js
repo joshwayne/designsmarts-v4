@@ -97,71 +97,117 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 // we use sourceNodes instead of onCreateNode because at this time plugins
 // will have created all nodes already and we can link both patterns to categories
 // and reverse link on categories to patterns
-exports.sourceNodes = ({ actions, getNodes, getNode }) => {
-  const { createNodeField } = actions;
+// exports.sourceNodes = ({ actions, getNodes, getNode }) => {
+//   const { createNodeField } = actions;
 
-  const patternsOfCategories = {};
-  const categoriesOfPatterns = {}; // reverse index
+//   const patternsOfCategories = {}; //List of categories with patterns inside
+//   const categoriesOfPatterns = {}; // List of patterns with categories inside (reverse index)
 
-  // as we can have multiple categories for a pattern, we should handle both cases
-  // both when category is specified as single item and when there is list of categories
-  // abstracting it to helper function help prevent code duplication
-  const getCategoryNodeByName = (name) =>
-    getNodes().find(
-      (node2) =>
-        node2.internal.type === `MarkdownRemark` &&
-        node2.frontmatter.title === name
-    );
+//   // as we can have multiple categories for a pattern, we should handle both cases
+//   // both when category is specified as single item and when there is list of categories
+//   // abstracting it to helper function help prevent code duplication
+//   const getCategoryNodeByName = (name) =>
+//     getNodes().find(
+//       (node2) =>
+//         node2.internal.type === `MarkdownRemark` &&
+//         node2.frontmatter.title === name
+//     );
 
-  // iterate through all markdown nodes to link patterns to category
-  // and build category index
-  const markdownNodes = getNodes()
-    .filter((node) => node.internal.type === `MarkdownRemark`)
-    .forEach((node) => {
-      if (node.frontmatter.categories) {
-        const categoryNodes =
-          node.frontmatter.categories instanceof Array
-            ? node.frontmatter.categories.map(getCategoryNodeByName) // get array of nodes
-            : [getCategoryNodeByName(node.frontmatter.categories)]; // get single node and create 1 element array
+//   // iterate through all markdown nodes to link patterns to category
+//   // and build category index
+//   const markdownNodes = getNodes()
+//     .filter((node) => node.internal.type === `MarkdownRemark`)
+//     .forEach((node) => {
+//       if (node.frontmatter.categories) {
+//         const categoryNodes =
+//           node.frontmatter.categories instanceof Array
+//             ? node.frontmatter.categories.map(getCategoryNodeByName) // get array of nodes
+//             : [getCategoryNodeByName(node.frontmatter.categories)]; // get single node and create 1 element array
 
-        // filtered not defined nodes and iterate through defined categories nodes to add data to indexes
-        categoryNodes
-          .filter((categoryNode) => categoryNode)
-          .map((categoryNode) => {
-            // if it's first time for this category init empty array for this pattern
-            if (!(categoryNode.id in patternsOfCategories)) {
-              patternsOfCategories[categoryNode.id] = [];
-            }
-            // add pattern to this category
-            patternsOfCategories[categoryNode.id].push(node.id);
+//         // filtered not defined nodes and iterate through defined categories nodes to add data to indexes
+//         categoryNodes
+//           .filter((categoryNode) => categoryNode)
+//           .map((categoryNode) => {
+//             // if it's first time for this category init empty array for this pattern
+//             if (!(categoryNode.id in patternsOfCategories)) {
+//               patternsOfCategories[categoryNode.id] = [];
+//             }
+//             // add pattern to this category
+//             patternsOfCategories[categoryNode.id].push(node.id);
 
-            // if it's first time for this pattern, init empty array for its categories
-            if (!(node.id in categoriesOfPatterns)) {
-              categoriesOfPatterns[node.id] = [];
-            }
-            // add category to this pattern
-            categoriesOfPatterns[node.id].push(categoryNode.id);
-          });
-      }
-    });
+//             // if it's first time for this pattern, init empty array for its categories
+//             if (!(node.id in categoriesOfPatterns)) {
+//               categoriesOfPatterns[node.id] = [];
+//             }
+//             // add category to this pattern
+//             categoriesOfPatterns[node.id].push(categoryNode.id);
+//           });
+//       }
+//     });
 
-  Object.entries(patternsOfCategories).forEach(
-    ([categoryNodeId, patternIds]) => {
-      createNodeField({
-        node: getNode(categoryNodeId),
-        name: `patterns`,
-        value: patternIds,
-      });
-    }
-  );
+//   Object.entries(patternsOfCategories).forEach(
+//     ([categoryNodeId, patternIds]) => {
+//       createNodeField({
+//         node: getNode(categoryNodeId),
+//         name: `patterns`,
+//         value: patternIds,
+//       });
+//     }
+//   );
 
-  Object.entries(categoriesOfPatterns).forEach(
-    ([patternNodeId, categoryIds]) => {
-      createNodeField({
-        node: getNode(patternNodeId),
-        name: `categories`,
-        value: categoryIds,
-      });
-    }
-  );
+//   Object.entries(categoriesOfPatterns).forEach(
+//     ([patternNodeId, categoryIds]) => {
+//       createNodeField({
+//         node: getNode(patternNodeId),
+//         name: `categories`,
+//         value: categoryIds,
+//       });
+//     }
+//   );
+// };
+
+
+
+exports.createResolvers = ({ createResolvers }) => {
+  const resolvers = {
+    MarkdownRemark: {
+      patterns: {
+        type: ["MarkdownRemark"],
+        resolve: async (source, args, context, info) => {
+          return (
+            (await context.nodeModel.runQuery({
+              type: "MarkdownRemark",
+              query: {
+                filter: {
+                  frontmatter: {
+                    templateKey: {eq: "design-pattern"}, 
+                    categories: {eq: source.frontmatter.title}
+                  }
+                },
+              },
+            })) || []
+          );
+        },
+      },
+      // pageDesigns: {
+      //   type: ["MarkdownRemark"],
+      //   resolve: async (source, args, context, info) => {
+      //     return (
+      //       (await context.nodeModel.runQuery({
+      //         type: "MarkdownRemark",
+      //         query: {
+      //           filter: {
+      //             frontmatter: {
+      //               templateKey: {eq: "design-pattern"}, 
+      //               categories: {eq: source.frontmatter.title}
+      //             }
+      //           },
+      //         },
+      //       })) || []
+      //     );
+      //   },
+      // },
+    },
+  };
+  createResolvers(resolvers);
 };

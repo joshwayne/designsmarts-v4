@@ -23,8 +23,8 @@ const PatternsPage = ({
           <div key={category.id}>
             <Link to={category.fields.slug} className="header--medium no-underline">{category.frontmatter.title}</Link>
 
-            {category.fields.patterns &&
-              category.fields.patterns.map(( pattern ) => (
+            {category.patterns &&
+              category.patterns.map(( pattern ) => (
                 <li>
                   <Link to={pattern.fields.slug} className="header--xsmall no-underline">{pattern.frontmatter.title}</Link>
                 </li>
@@ -49,19 +49,18 @@ export const patternsPageQuery = graphql`
     ) {
       edges {
         node {
-          id
           frontmatter {
             title
           }
           fields {
             slug
-            patterns {
-              frontmatter {
-                title
-              }
-              fields {
-                slug
-              }
+          }
+          patterns {
+            frontmatter {
+              title
+            }
+            fields {
+              slug
             }
           }
         }

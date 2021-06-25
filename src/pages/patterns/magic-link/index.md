@@ -50,6 +50,4 @@ Magic link is an authentication method where a user is emailed a link that will 
 - Third party login
 - Log in with device
 
-[Copy of Research Links](Magic%20Link%20a469cd99f2e246fea3a62348c2f4eb7a/Copy%20of%20Research%20Links%209635dccafd4c46c0846e9fd91c31c8b3.csv)
-
 ### Code links

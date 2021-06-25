@@ -22,10 +22,10 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "design-pattern"}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Description", name: "description", widget: "markdown"}
-      - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Other names", name: "otherNames", widget: "string"}
-      - {label: "Tags", name: "tags", widget: "string"}
+      - {label: "Description", name: "description", widget: "markdown", required: false}
+      - {label: "Body", name: "body", widget: "markdown", required: false}
+      - {label: "Other names", name: "otherNames", widget: "string", required: false}
+      - {label: "Tags", name: "tags", widget: "string", required: false}
       - label: "Categories"
         name: "categories"
         multiple: true
@@ -41,7 +41,7 @@ collections:
         required: false
         collection: "patterns"
         search_fields: ["title"]
-        value_field: "{{slug}}"
+        value_field: "{{title}}"
         display_fields: ["title"]
 
   - name: "patternCategories"
@@ -111,7 +111,7 @@ collections:
           - {label: Full_image, name: full_image, widget: image}
           - {label: Pricing, name: pricing, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: string}, {label: Plans, name: plans, widget: list, fields: [{label: Plan, name: plan, widget: string}, {label: Price, name: price, widget: string}, {label: Description, name: description, widget: string}, {label: Items, name: items, widget: list}]}]}
 
-  - name: "pagedesigns"
+  - name: "pageDesigns"
     label: "Page Designs"
     label_singular: "Page Design"
     folder: "src/pages/page-designs"
@@ -130,7 +130,7 @@ collections:
         required: true
         collection: "companies"
         search_fields: ["title"]
-        value_field: "{{slug}}"
+        value_field: "{{title}}"
         display_fields: ["title"]
       - label: "Patterns in use"
         name: "patternsInUse"
@@ -139,7 +139,7 @@ collections:
         required: false
         collection: "patterns"
         search_fields: ["title"]
-        value_field: "{{slug}}"
+        value_field: "{{title}}"
         display_fields: ["title"]
 
   - name: "companies"

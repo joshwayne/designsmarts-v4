@@ -3,7 +3,7 @@ templateKey: design-pattern
 title: Search Field
 description: Here's a description
 otherNames: find
-tags: search
+# tags: search
 categories:
   - Search
 ---
