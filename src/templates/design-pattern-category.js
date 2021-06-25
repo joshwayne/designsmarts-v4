@@ -6,7 +6,7 @@ import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 
-export const DesignPatternCategoryTemplate = ({
+const DesignPatternCategoryTemplate = ({
   content,
   contentComponent,
   description,

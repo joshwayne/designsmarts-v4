@@ -6,7 +6,7 @@ import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 
-export const CompanyTemplate = () => (
+const CompanyTemplate = () => (
     <Layout>
       <h1>Company Page</h1>
     </Layout>
