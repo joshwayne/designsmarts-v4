@@ -189,24 +189,24 @@ exports.createResolvers = ({ createResolvers }) => {
           );
         },
       },
-      // pageDesigns: {
-      //   type: ["MarkdownRemark"],
-      //   resolve: async (source, args, context, info) => {
-      //     return (
-      //       (await context.nodeModel.runQuery({
-      //         type: "MarkdownRemark",
-      //         query: {
-      //           filter: {
-      //             frontmatter: {
-      //               templateKey: {eq: "design-pattern"}, 
-      //               categories: {eq: source.frontmatter.title}
-      //             }
-      //           },
-      //         },
-      //       })) || []
-      //     );
-      //   },
-      // },
+      pageDesigns: {
+        type: ["MarkdownRemark"],
+        resolve: async (source, args, context, info) => {
+          return (
+            (await context.nodeModel.runQuery({
+              type: "MarkdownRemark",
+              query: {
+                filter: {
+                  frontmatter: {
+                    templateKey: {eq: "page-design"}, 
+                    patternsInUse: {eq: source.frontmatter.title}
+                  }
+                },
+              },
+            })) || []
+          );
+        },
+      },
     },
   };
   createResolvers(resolvers);
