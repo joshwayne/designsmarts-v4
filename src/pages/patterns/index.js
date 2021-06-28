@@ -17,20 +17,37 @@ const PatternsPage = ({
     <div className="container">
       <Helmet title={`Design Patterns | ${title}`} />
       <h1 className="header--large">Design Patterns</h1>
+      <span className="subheader">
+        X design examples
+      </span>
 
-      {categories &&
-        categories.map(({ node: category }) => (
-          <div key={category.id}>
-            <Link to={category.fields.slug} className="header--medium no-underline">{category.frontmatter.title}</Link>
+      <div className="pattern-list">
+        {categories &&
+          categories.map(({ node: category }) => (
+            <div className="card" key={category.id}>
+              <Link to={category.fields.slug} className="pattern-card--item no-underline">
+                <h2 className="header--medium">
+                  {category.frontmatter.title}
+                </h2>
+                <span className="subheader">
+                  X design examples
+                </span>
+              </Link>
 
-            {category.patterns &&
-              category.patterns.map(( pattern ) => (
-                <li>
-                  <Link to={pattern.fields.slug} className="header--xsmall no-underline">{pattern.frontmatter.title}</Link>
-                </li>
-              ))}
-          </div>
-        ))}
+              {category.patterns &&
+                category.patterns.map(( pattern ) => (
+                  <Link to={pattern.fields.slug} className="pattern-card--item no-underline">
+                    <h3 className="header--xsmall">
+                      {pattern.frontmatter.title}
+                    </h3>
+                    <span className="subheader">
+                      X design examples
+                    </span>
+                  </Link>
+                ))}
+            </div>
+          ))}
+      </div>
     </div>
   </Layout>
 );
@@ -46,6 +63,7 @@ export const patternsPageQuery = graphql`
     }
     allMarkdownRemark(
       filter: {frontmatter: {templateKey: {eq: "design-pattern-category"}}}
+      sort: {fields: frontmatter___title, order: ASC}
     ) {
       edges {
         node {

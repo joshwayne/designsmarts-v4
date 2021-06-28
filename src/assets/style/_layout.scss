@@ -16,3 +16,15 @@
   margin: 0 auto;
   max-width: 770px;
 }
+
+.card {
+  background: #FFFFFF;
+  box-shadow: 0px 10px 12px -5px rgba(0, 0, 0, 0.12);
+  border: 1px solid $grey-100;
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+.card--large {
+  border-radius: 16px;
+}
