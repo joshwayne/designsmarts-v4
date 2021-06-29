@@ -36,48 +36,56 @@ const Navbar = class extends React.Component {
   render() {
     return (
       <nav className="container navbar" role="navigation" aria-label="main-navigation">
-        <Link className="logo" to="/">
-          <img className="logo--icon" src={logo} alt="Logo" />
-          <span className="logo--text">Uncommon sense</span>
-        </Link>
-        {/* Hamburger menu */}
-        {/* <div
-          className={`navbar-burger burger ${this.state.navBarActiveClass}`}
-          data-target="navMenu"
-          onClick={() => this.toggleHamburger()}
-        >
-          <span />
-          <span />
-          <span />
-        </div> */}
-        <div
-          id="navMenu"
-          className={`navbar--menu ${this.state.navBarActiveClass}`}
-        >
-          <div className="">
-            <Link className="navbar--item" to="/patterns">
-              Design Patterns
-            </Link>
-            <Link className="navbar--item" to="/page-designs">
-              Page Designs
-            </Link>
-            <Link className="navbar--item" to="/blog">
-              Blog
-            </Link>
-            <Link className="navbar--item" to="/design-courses">
-              Courses
-            </Link>
-            <Link className="navbar--item" to="/about">
-              About
-            </Link>
-            {/* <Link className="navbar--item" to="/contact">
-              Contact
-            </Link> */}
-            {/* <Link className="navbar--item" to="/contact/examples">
-              Form Examples
-            </Link> */}
+        <div className="navbar--left">
+          <Link className="logo" to="/">
+            <img className="logo--icon" src={logo} alt="Logo" />
+            <span className="logo--text">Uncommon sense</span>
+          </Link>
+          {/* Hamburger menu */}
+          {/* <div
+            className={`navbar-burger burger ${this.state.navBarActiveClass}`}
+            data-target="navMenu"
+            onClick={() => this.toggleHamburger()}
+          >
+            <span />
+            <span />
+            <span />
+          </div> */}
+          <div
+            id="navMenu"
+            className={`navbar--menu ${this.state.navBarActiveClass}`}
+          >
+            <div className="">
+              <Link className="navbar--item" to="/patterns">
+                Design Patterns
+              </Link>
+              <Link className="navbar--item" to="/page-designs">
+                Page Designs
+              </Link>
+              <Link className="navbar--item" to="/blog">
+                Blog
+              </Link>
+              <Link className="navbar--item" to="/design-courses">
+                Courses
+              </Link>
+              <Link className="navbar--item" to="/about">
+                About
+              </Link>
+              {/* <Link className="navbar--item" to="/contact">
+                Contact
+              </Link> */}
+              {/* <Link className="navbar--item" to="/contact/examples">
+                Form Examples
+              </Link> */}
+            </div>
           </div>
-        </div>
+          </div>
+
+          <div>
+            <Link className="navbar--item" to="/patterns">
+              Log in
+            </Link>
+          </div>
       </nav>
     );
   }

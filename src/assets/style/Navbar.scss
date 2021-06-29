@@ -1,7 +1,12 @@
 .navbar {
-  padding: 1rem;
+  padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.navbar--left {
+  display: flex;
   align-items: center;
 }
 
@@ -15,6 +20,7 @@
   text-decoration: none;
   display: flex;
   align-items: center;
+  margin-right: 3rem;
 }
 
 .logo--icon {
@@ -27,10 +33,11 @@
 }
 
 .navbar--item {
-  color: $grey-900;
-  font-weight: bold;
-  letter-spacing: 0.03em;
+  color: $grey-600;
+  font-weight: regular;
+  letter-spacing: 0.01em;
   text-decoration: none;
-  text-transform: uppercase;
   padding: 1rem;
+  font-size: 1.0625rem;
+  line-height: 1em;
 }

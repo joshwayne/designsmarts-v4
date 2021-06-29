@@ -16,16 +16,18 @@ const PatternsPage = ({
   <Layout>
     <div className="container">
       <Helmet title={`Design Patterns | ${title}`} />
-      <h1 className="header--large">Design Patterns</h1>
-      <span className="subheader">
-        X design examples
-      </span>
+      <div className="page-header">
+        <h1 className="header--large">Design Patterns</h1>
+        <span className="subheader">
+          X design examples
+        </span>
+      </div>
 
-      <div className="pattern-list">
+      <div className="">
         {categories &&
           categories.map(({ node: category }) => (
-            <div className="card" key={category.id}>
-              <Link to={category.fields.slug} className="pattern-card--item no-underline">
+            <div className="" key={category.id}>
+              <Link to={category.fields.slug} className="pattern-category no-underline">
                 <h2 className="header--medium">
                   {category.frontmatter.title}
                 </h2>
@@ -33,18 +35,22 @@ const PatternsPage = ({
                   X design examples
                 </span>
               </Link>
-
-              {category.patterns &&
-                category.patterns.map(( pattern ) => (
-                  <Link to={pattern.fields.slug} className="pattern-card--item no-underline">
-                    <h3 className="header--xsmall">
-                      {pattern.frontmatter.title}
-                    </h3>
-                    <span className="subheader">
-                      X design examples
-                    </span>
-                  </Link>
-                ))}
+              
+              <div className="pattern-list">
+                {category.patterns &&
+                  category.patterns
+                    .sort((a, b) => (a.frontmatter.title > b.frontmatter.title) ? 1 : -1)
+                    .map(( pattern ) => (
+                    <Link to={pattern.fields.slug} className="card pattern-card no-underline">
+                      <h3 className="header--xsmall">
+                        {pattern.frontmatter.title}
+                      </h3>
+                      <span className="subheader">
+                        X design examples
+                      </span>
+                    </Link>
+                  ))}
+              </div>
             </div>
           ))}
       </div>
