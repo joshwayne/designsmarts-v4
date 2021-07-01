@@ -13,28 +13,39 @@ const PageDesignsPage = ({
   },
 }) => (
   <Layout>
-    <section className="section">
+    <div className="container">
       <Helmet title={`Page Designs | ${title}`} />
+      <div className="page-header">
+        <h1 className="header--large">Page Designs</h1>
+        <span className="subheader">
+          X design examples
+        </span>
+      </div>
       <div className="">
         <div className="">
-          <div className="">
-
-            <h1 className="">Page Designs</h1>
-
+          <div className="design-list">
             {pageDesigns &&
               pageDesigns.map(({ node: pageDesign }) => (
-                <div key={pageDesign.id}>
-                  <Link to={pageDesign.fields.slug}>
-                    <GatsbyImage image={getImage(pageDesign.frontmatter.image)} alt={pageDesign.frontmatter.title} />
+                <Link 
+                  key={pageDesign.id} 
+                  to={pageDesign.fields.slug}
+                  className="design-list--item no-underline"
+                >
+                  <GatsbyImage 
+                    image={getImage(pageDesign.frontmatter.image)} 
+                    alt={pageDesign.frontmatter.title}
+                    className="design-list--item--image"
+                  />
+                  <div className="design-list--item--content">
                     {pageDesign.frontmatter.title}
-                  </Link>
-                </div>
+                  </div>
+                </Link>
               ))}
               
           </div>
         </div>
       </div>
-    </section>
+    </div>
   </Layout>
 );
 
