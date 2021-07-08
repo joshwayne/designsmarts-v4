@@ -1,0 +1,44 @@
+.footer {
+  background: url(../img/footer-bg.svg);
+}
+
+.footer--content {
+  display: flex;
+  flex-direction: row;
+}
+
+.footer--nav-column {
+
+  a {
+    color: $grey-500;
+    display: block;
+    margin-bottom: 1rem;
+    padding: 0.5rem 0;
+    text-decoration: none;
+  }
+}
+
+.footer--newsletter {
+  
+}
+
+.footer--input {
+  border: 1px solid $grey-200;
+  display: block;
+  margin-bottom: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 3px;
+}
+
+.footer--button {
+  border: none;
+  background-color: $primary;
+  padding: 0.75rem 1rem;
+  border-radius: 3px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.footer--legal {
+  color: $grey-500;
+}
