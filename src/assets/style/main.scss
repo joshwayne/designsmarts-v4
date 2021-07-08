@@ -108,8 +108,29 @@
 
 .pattern-list {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
-  grid-auto-rows: minmax(5rem, auto);
+  grid-auto-rows: minmax(4rem, auto);
   margin-bottom: 4rem;
+}
+
+.design-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  grid-auto-rows: minmax(4rem, auto);
+  margin-bottom: 4rem;
+}
+
+.design-list--item {
+  display: block;
+}
+
+.design-list--item--image {
+  border-radius: 0.5rem;
+}
+
+.design-list--item--content {
+  margin-top: 0.5rem;
+  font-weight: bold;
 }
