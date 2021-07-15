@@ -6,25 +6,25 @@ import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 
-// export const BlogPostTemplate = ({
-//   content,
-//   contentComponent,
-//   description,
-//   tags,
-//   title,
-//   helmet,
-// }) => {
+export const BlogPostTemplate = ({
+  content,
+  contentComponent,
+  description,
+  tags,
+  title,
+  helmet,
+}) => {
   
 
-// }
+}
 
-// BlogPostTemplate.propTypes = {
-//   content: PropTypes.node.isRequired,
-//   contentComponent: PropTypes.func,
-//   description: PropTypes.string,
-//   title: PropTypes.string,
-//   helmet: PropTypes.object,
-// }
+BlogPostTemplate.propTypes = {
+  content: PropTypes.node.isRequired,
+  contentComponent: PropTypes.func,
+  description: PropTypes.string,
+  title: PropTypes.string,
+  helmet: PropTypes.object,
+}
 
 const BlogPost = ({ data }) => {
   const PostContent = contentComponent || Content
