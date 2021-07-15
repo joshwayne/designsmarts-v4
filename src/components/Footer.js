@@ -7,7 +7,7 @@ const Footer = class extends React.Component {
   render() {
     return (
       <footer className="footer">
-        <div class="footer--content container">
+        <div className="footer--content container">
           <div className="footer--logo-column">
             <Link className="logo" to="/">
               <img className="logo--icon" src={logo} alt="Logo" />

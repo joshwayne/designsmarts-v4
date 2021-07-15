@@ -6,33 +6,29 @@ import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 
-export const BlogPostTemplate = ({
-  content,
-  contentComponent,
-  description,
-  tags,
-  title,
-  helmet,
-}) => {
+// export const BlogPostTemplate = ({
+//   content,
+//   contentComponent,
+//   description,
+//   tags,
+//   title,
+//   helmet,
+// }) => {
   
 
-}
+// }
 
-BlogPostTemplate.propTypes = {
-  content: PropTypes.node.isRequired,
-  contentComponent: PropTypes.func,
-  description: PropTypes.string,
-  title: PropTypes.string,
-  helmet: PropTypes.object,
-}
-
-const BlogPost = ({ data }) => {
-  const PostContent = contentComponent || Content
-  const { markdownRemark: post } = data
+const BlogPostTemplate = ({ data }) => {
+  // const PostContent = contentComponent || Content
+  // const { markdownRemark: post } = data
+  console.log(data);
 
   return (
     <Layout>
-      <section className="section">
+      <div className="container">
+        <h1>Hello</h1>
+      </div>
+      {/* <section className="section">
       <Helmet titleTemplate="%s | Blog">
         <title>{`${post.frontmatter.title}`}</title>
         <meta
@@ -63,18 +59,29 @@ const BlogPost = ({ data }) => {
           </div>
         </div>
       </div>
-    </section>
+    </section> */}
     </Layout>
   )
 }
 
-BlogPost.propTypes = {
+// BlogPostTemplate.propTypes = {
+//   content: PropTypes.node.isRequired,
+//   contentComponent: PropTypes.func,
+//   description: PropTypes.string,
+//   title: PropTypes.string,
+//   helmet: PropTypes.object,
+// }
+
+BlogPostTemplate.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
   }),
+  description: PropTypes.string,
+  title: PropTypes.string,
+  helmet: PropTypes.object,
 }
 
-export default BlogPost
+export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query BlogPostByID($id: String!) {
