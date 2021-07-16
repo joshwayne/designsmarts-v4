@@ -4,10 +4,11 @@ import { kebabCase } from "lodash";
 import { Helmet } from "react-helmet";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
-import Content, { HTMLContent } from "../components/Content";
+import { HTMLContent } from "../components/Content";
 
 const BlogPostTemplate = ({ data }) => {
   const { markdownRemark: post } = data;
+  console.log(data);
 
   return (
     <Layout>
@@ -42,6 +43,8 @@ BlogPostTemplate.propTypes = {
   description: PropTypes.string,
   title: PropTypes.string,
   helmet: PropTypes.object,
+  html: PropTypes.string,
+  tags: PropTypes.array,
 };
 
 export default BlogPostTemplate;
