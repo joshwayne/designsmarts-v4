@@ -1,5 +1,5 @@
 .footer {
-  background: #F5F7FA url(../img/footer-bg.svg);
+  background: url(../img/footer-bg.svg);
 }
 
 .footer--content {
@@ -8,6 +8,7 @@
   justify-content: center;
   justify-content: space-between;
   padding-bottom: 0;
+  padding-top: 6rem;
 }
 
 .footer--logo-column,
