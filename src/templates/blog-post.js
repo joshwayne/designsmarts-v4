@@ -1,76 +1,39 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { kebabCase } from 'lodash'
-import { Helmet } from 'react-helmet'
-import { graphql, Link } from 'gatsby'
-import Layout from '../components/Layout'
-import Content, { HTMLContent } from '../components/Content'
-
-// export const BlogPostTemplate = ({
-//   content,
-//   contentComponent,
-//   description,
-//   tags,
-//   title,
-//   helmet,
-// }) => {
-  
-
-// }
+import React from "react";
+import PropTypes from "prop-types";
+import { kebabCase } from "lodash";
+import { Helmet } from "react-helmet";
+import { graphql, Link } from "gatsby";
+import Layout from "../components/Layout";
+import Content, { HTMLContent } from "../components/Content";
 
 const BlogPostTemplate = ({ data }) => {
-  // const PostContent = contentComponent || Content
-  // const { markdownRemark: post } = data
-  console.log(data);
+  const { markdownRemark: post } = data;
 
   return (
     <Layout>
-      <div className="container">
-        <h1>Hello</h1>
-      </div>
-      {/* <section className="section">
       <Helmet titleTemplate="%s | Blog">
         <title>{`${post.frontmatter.title}`}</title>
-        <meta
-          name="description"
-          content={`${post.frontmatter.description}`}
-        />
+        <meta name="description" content={`${post.frontmatter.description}`} />
       </Helmet>
-      <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {post.frontmatter.title}
-            </h1>
-            <p>{post.frontmatter.description}</p>
-            <PostContent content={post.html} />
-            {tags && tags.length ? (
-              <div style={{ marginTop: `4rem` }}>
-                <h4>Tags</h4>
-                <ul className="taglist">
-                  {post.frontmatter.tags.map((tag) => (
-                    <li key={tag + `tag`}>
-                      <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
-          </div>
-        </div>
+      <div className="container">
+        <h1>{post.frontmatter.title}</h1>
+        <HTMLContent content={post.html} />
       </div>
-    </section> */}
+      {post.frontmatter.tags && post.frontmatter.tags.length ? (
+        <div>
+          <h4>Tags</h4>
+          <ul className="">
+            {post.frontmatter.tags.map((tag) => (
+              <li key={tag + `tag`}>
+                <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
     </Layout>
-  )
-}
-
-// BlogPostTemplate.propTypes = {
-//   content: PropTypes.node.isRequired,
-//   contentComponent: PropTypes.func,
-//   description: PropTypes.string,
-//   title: PropTypes.string,
-//   helmet: PropTypes.object,
-// }
+  );
+};
 
 BlogPostTemplate.propTypes = {
   data: PropTypes.shape({
@@ -79,9 +42,9 @@ BlogPostTemplate.propTypes = {
   description: PropTypes.string,
   title: PropTypes.string,
   helmet: PropTypes.object,
-}
+};
 
-export default BlogPostTemplate
+export default BlogPostTemplate;
 
 export const pageQuery = graphql`
   query BlogPostByID($id: String!) {
@@ -96,4 +59,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
