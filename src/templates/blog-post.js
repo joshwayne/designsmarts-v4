@@ -1,53 +1,44 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { kebabCase } from "lodash";
-import { Helmet } from "react-helmet";
-import { graphql, Link } from "gatsby";
-import Layout from "../components/Layout";
-import { HTMLContent } from "../components/Content";
+import React from 'react'
+import PropTypes from 'prop-types'
+import { kebabCase } from 'lodash'
+import { Helmet } from 'react-helmet'
+import { graphql, Link } from 'gatsby'
+import Layout from '../components/Layout'
+import Content, { HTMLContent } from '../components/Content'
+import BlogPostTemplate from '../components/BlogPostTemplate'
 
-const BlogPostTemplate = ({ data }) => {
-  const { markdownRemark: post } = data;
-  console.log(data);
+const BlogPost = ({ data }) => {
+  const { markdownRemark: post } = data
 
   return (
     <Layout>
-      <Helmet titleTemplate="%s | Blog">
-        <title>{`${post.frontmatter.title}`}</title>
-        <meta name="description" content={`${post.frontmatter.description}`} />
-      </Helmet>
-      <div className="container">
-        <h1>{post.frontmatter.title}</h1>
-        <HTMLContent content={post.html} />
-      </div>
-      {post.frontmatter.tags && post.frontmatter.tags.length ? (
-        <div>
-          <h4>Tags</h4>
-          <ul className="">
-            {post.frontmatter.tags.map((tag) => (
-              <li key={tag + `tag`}>
-                <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ) : null}
+      <BlogPostTemplate
+        content={post.html}
+        contentComponent={HTMLContent}
+        description={post.frontmatter.description}
+        helmet={
+          <Helmet titleTemplate="%s | Blog">
+            <title>{`${post.frontmatter.title}`}</title>
+            <meta
+              name="description"
+              content={`${post.frontmatter.description}`}
+            />
+          </Helmet>
+        }
+        tags={post.frontmatter.tags}
+        title={post.frontmatter.title}
+      />
     </Layout>
-  );
-};
+  )
+}
 
-BlogPostTemplate.propTypes = {
+BlogPost.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
   }),
-  description: PropTypes.string,
-  title: PropTypes.string,
-  helmet: PropTypes.object,
-  html: PropTypes.string,
-  tags: PropTypes.array,
-};
+}
 
-export default BlogPostTemplate;
+export default BlogPost
 
 export const pageQuery = graphql`
   query BlogPostByID($id: String!) {
@@ -62,4 +53,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`
