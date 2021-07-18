@@ -2,12 +2,18 @@
 templateKey: book-review
 title: "Talking to Humans: Success starts with understanding your customers"
 cover: talking-to-humans.jpg
-author: "Giff Constable"
+author: Giff Constable
 rating: 9
-last_read: "January 15, 2018"
+last_read: January 15, 2018
 buy_location: Amazon
-buy_link: "https://www.amazon.com/Talking-Humans-Success-understanding-customers/dp/099080092X/"
-summary: "Brief, actionable, and excellent. <i>The Lean Startup</i> tells you to get out of the building and talk to customers, this book tells you exactly how to do that. When I’ve advised startups to talk to customers, the follow up question is always some version of “How?”. This book covers the tactics of conducting successful customer interviews including real scripts you can use. Now that I’ve discovered this book, this is what I’ll send people who need to do customer research."
+buy_link: https://www.amazon.com/Talking-Humans-Success-understanding-customers/dp/099080092X/
+summary: Brief, actionable, and excellent. *The Lean Startup* tells you to get
+  out of the building and talk to customers, this book tells you exactly how to
+  do that. When I’ve advised startups to talk to customers, the follow up
+  question is always some version of “How?”. This book covers the tactics of
+  conducting successful customer interviews including real scripts you can use.
+  Now that I’ve discovered this book, this is what I’ll send people who need to
+  do customer research.
 ---
 
 Talking to Humans teaches you how to get out of the building. It guides students and entrepreneurs through the critical elements: how to find interview candidates, structure and conduct effective interviews and synthesize your learning. Giff provides ample anecdotes as well as useful strategies, tactics and best practices to help you hit the ground running in your customer discovery interviews.
