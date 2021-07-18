@@ -6,8 +6,13 @@ author: Amir Khella
 rating: 5
 last_read: December 17th, 2017
 buy_location: Amazon
-buy_link: "https://amzn.to/2rRWzAj"
-summary: "Quick introduction on creating rapid prototypes in Keynote/PowerPoint by the creator of Keynotopia (a Keynote UI library). The book is directed towards a complete beginner and rushes through a lot of important concepts that should be explained better. I’d only recommend this book for a non designer who wants to turn their idea into a prototype as fast as possible. If you’re a designer, you’re better off skipping this book and learning Sketch and exporting to prototypes in Invision or Marvel."
+buy_link: https://amzn.to/2rRWzAj
+summary: Quick introduction on creating rapid prototypes in Keynote/PowerPoint
+  by the creator of *Keynotopia* (a Keynote UI library). The book is directed
+  towards a complete beginner and rushes through a lot of important concepts
+  that should be explained better. I’d only recommend this book for a non
+  designer who wants to turn their idea into a prototype as fast as possible. If
+  you’re a designer, you’re better off skipping this book and learning Figma.
 ---
 
 This book will teach you a super-fast and cheap approach to prototyping and validating app ideas, before spending the time and money to develop them.
