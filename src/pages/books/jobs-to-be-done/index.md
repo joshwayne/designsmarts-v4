@@ -2,12 +2,24 @@
 templateKey: book-review
 title: "Jobs to be Done: Theory to Practice"
 cover: jobs-to-be-done.jpg
-author: "Anthony W. Ulwick"
+author: Anthony W. Ulwick
 rating: 2
 last_read: March 8, 2018
 buy_location: Amazon
-buy_link: "https://www.amazon.com/dp/B01M73AP2I/"
-summary: "The title of the book is <i>Jobs to be Done: Theory to Practice</i> but should be <i>Jobs to be Done: Why You Should Hire Me</i>. The book explains how the author and his team developed Jobs to Be Done Theory into a repeatable, predictable process called ODI (Outcome-Driven Innovation). The book explains the high level steps in the ODI process and shares case studies of how the author’s consultancy helped clients make fistfuls of cash, but the book never tells you how to implement the process yourself. Instead, it’s one big buildup to a pitch on why you should pay thousands of dollars to hire them or do their ODI Practitioner certificate program.</p><p>There’s parts I found useful, but for the most part the book seems to be part of a growing trend of consultants writing books as a long form sales tool rather than a teaching tool. If this was a free book, I wouldn’t mind at all. But I’m annoyed that I paid $9.99 for an elaborate bait and switch. If you want to get any value from it, read my notes and don’t buy the book. 95% of it is a waste of time. Go read <a href=\"/books/competing-against-luck/\"><em>Competing Against Luck</em></a> instead."
+buy_link: https://www.amazon.com/dp/B01M73AP2I/
+summary: >-
+  The title of the book is *Jobs to be Done: Theory to Practice* but should be
+  *Jobs to be Done: Why You Should Hire Me*. The book explains how the author
+  and his team developed Jobs to Be Done Theory into a repeatable, predictable
+  process called ODI (Outcome-Driven Innovation). The book explains the high
+  level steps in the ODI process and shares case studies of how the author’s
+  consultancy helped clients make fistfuls of cash, but the book never tells you
+  how to implement the process yourself. Instead, it’s one big buildup to a
+  pitch on why you should pay tens of thousands of dollars to hire them or do
+  their ODI Practitioner certificate program.
+
+
+  There’s parts I found useful, but for the most part the book seems to be part of a growing trend of consultants writing books as a long form sales tool rather than a teaching tool. If this was a free book, I wouldn’t mind at all. But I’m annoyed that I paid $9.99 for an elaborate bait and switch. If you want to get any value from it, read my notes and don’t buy the book. 95% of it is a waste of time. Go read *[Competing Against Luck](/books/competing-against-luck/)* instead.
 ---
 
 
