@@ -6,8 +6,11 @@ author: Kathy Sierra
 rating: 10
 last_read: August 30, 2020
 buy_location: Amazon
+summary: I love this book. It's one of the best books to explain the value of
+  good product design and why everyone working on your product should be focused
+  on delivering an excellent customer experience. A must read for anyone
+  creating products.
 buy_link: https://amzn.to/2rYLZGL
-summary: "<p>I love this book. It's one of the best books to explain the value of good product design and why everyone working on your product should be focused on delivering an excellent customer experience. A must read for anyone creating products.</p>"
 ---
 
 Luck always plays a role. Our job is to shrink the role luck plays.
