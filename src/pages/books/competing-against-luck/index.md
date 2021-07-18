@@ -7,7 +7,12 @@ rating: 9
 last_read: February 15, 2018
 buy_location: Amazon
 buy_link: https://amzn.to/2KFaQXW
-summary: "THE book for understanding the theory behind Jobs to be Done. It’s written by Clayton Christensen, the guy who coined the term “jobs to be done” and developed most of the theory around it. It’s well written and has tons of examples of identifying and using Jobs Theory in the wild. Just an overall excellent book and a great read. If you’re interested in learning about Jobs to be Done, start here."
+summary: "*THE* book for understanding the theory behind Jobs to be Done. It’s
+  written by Clayton Christensen, the guy who coined the term “jobs to be done”
+  and developed most of the theory around it. It’s well written and has tons of
+  examples of identifying and using Jobs Theory in the wild. Just an overall
+  excellent book and a great read. If you’re interested in learning about Jobs
+  to be Done, start here."
 ---
 
 If you are tired of throwing yourself and your organization into well-intended innovation efforts that routinely underwhelm; if you want to create products and services that you know, in advance, customers will not only be eager to buy, but willing to pay a premium price for; if you want to compete—and win—against those relying on luck to successfully innovate, then read on.
