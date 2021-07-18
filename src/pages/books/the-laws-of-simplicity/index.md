@@ -7,7 +7,15 @@ rating: 4
 last_read: May 13, 2018
 buy_location: Amazon
 buy_link: https://amzn.to/2kbPgyX
-summary: "Big ideas, but very vague. I’m not a fan of books that try to tackle concepts like simplicity without putting in the work to truly cover it well. The irony of this book is the author forgot one of his own “laws” and didn’t strip out all the rambley, barely connected thoughts to make the content clear. I might recommend this book to someone who just wants a designer-y book that’s easy reading but I wouldn’t recommend it to anyone who actually wants to learn design. There’s much better books to spend your time on. Otherwise, it’s a decent book if you’re stuck at the airport with a dead Kindle and this is the only design book you could find in the airport bookstore."
+summary: Big ideas, but very vague. I’m not a fan of books that try to tackle
+  concepts like simplicity without putting in the work to truly cover it well.
+  The irony of this book is the author forgot one of his own “laws” and didn’t
+  strip out all the ramble-y, barely connected thoughts to make the content
+  clear. I might recommend this book to someone who just wants a designer-y book
+  that’s easy reading but I wouldn’t recommend it to anyone who actually wants
+  to learn design. There’s much better books to spend your time on. Otherwise,
+  it’s a decent book if you’re stuck at the airport with a dead Kindle and this
+  is the only design book you could find in the airport bookstore.
 ---
 
 
