@@ -1,16 +1,22 @@
 ---
 templateKey: book-review
-title: "Designing for Emotion"
+title: Designing for Emotion
 cover: designing-for-emotion.jpg
 author: Aaron Walter
 rating: 7
 last_read: May 22, 2019
 buy_location: A Book Apart
 buy_link: https://abookapart.com/products/designing-for-emotion
-summary: "Short book on integrating emotion into your design work from the former design lead at MailChimp. Uses a lot of great examples of companies using humor, quirkiness, and thoughtfulness to encourage customers to buy and stick around. Definitely worth a read to get you thinking about how you can take your designs past usable and make them delightful.</p><p><strong>Update:</strong> Since my review I’ve also read <a href=\"https://designsmarts.co/books/technically-wrong/\" ><em>Technically Wrong</em></a> which talks about how many of the practices in <em>Designing for Emotion</em> are no longer used at many of the companies mentioned and are no longer recommended. There’s still some great things to take away from this book but I highly recommend reading both to understand the dangers."
+summary: >-
+  Short book on integrating emotion into your design work from the former design
+  lead at MailChimp. Uses a lot of great examples of companies using humor,
+  quirkiness, and thoughtfulness to encourage customers to buy and stick around.
+  Definitely worth a read to get you thinking about how you can take your
+  designs past usable and make them delightful.
+
+
+  **Update:** Since my review I’ve also read *[Technically Wrong](/books/technically-wrong/)* which talks about how many of the practices in *Designing for Emotion* are no longer used at many of the companies mentioned and are no longer recommended. There’s still some great things to take away from this book but I highly recommend reading both to understand the dangers.
 ---
-
-
 People only voluntarily recommend that which is truly delightful. If we want to achieve long-term remarkability, we need to build in long-term delight.
 
 There’s plenty of opportunity to build fast and cheap sites with no reverence for craft or the relationship we build with our audience. We could create new projects with stock photography, boilerplate templates, and one-size-fits-all copy. We could reduce our industry to a commodities race, like those who manufactured the industrial revolution. There is a market for that kind of work. Or we could follow a different path, one paved by the artists, designers, and architects of the Arts and Crafts movement, who believed that preserving the human touch and showing ourselves in our work isn’t optional. It’s essential.
