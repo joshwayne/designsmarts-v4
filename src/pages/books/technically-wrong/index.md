@@ -1,14 +1,21 @@
 ---
 templateKey: book-review
-title: "Technically Wrong: Sexist Apps, Biased Algorithms, and Other Threats of Toxic Tech"
-description: "A review of the book Technically Wrong by Sara Wachter-Boettcher"
+title: "Technically Wrong: Sexist Apps, Biased Algorithms, and Other Threats of
+  Toxic Tech"
 cover: technically-wrong.jpg
 author: Sara Wachter-Boettcher
 rating: 8
 last_read: July 1, 2019
 buy_location: Amazon
 buy_link: https://www.amazon.com/dp/B06XJBGPT9/
-summary: 'Great book that brings attention to how the best intentions can make apps sexist, biased, and toxic. It documents dozens of examples of what happens when design teams fail to think beyond the positive effects of their products and the sometimes disastrously negative effects of seemingly cutesy, funny, and happy experiences. If you’ve read <a href=\"https://designsmarts.co/books/designing-for-emotion/\" ><em>Designing for Emotion</em></a> I highly recommend reading this book as well.'
+summary: Great book that brings attention to how the best intentions can make
+  apps sexist, biased, and toxic. It documents dozens of examples of what
+  happens when design teams fail to think beyond the positive effects of their
+  products and the sometimes disastrously negative effects of seemingly cutesy,
+  funny, and happy experiences. If you’ve read *[Designing for
+  Emotion](/books/designing-for-emotion/)* I highly recommend reading this book
+  as well.
+description: A review of the book Technically Wrong by Sara Wachter-Boettcher
 ---
 
 
