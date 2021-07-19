@@ -15,23 +15,24 @@ const Footer = class extends React.Component {
             </Link>
           </div>
           <div className="footer--nav-column">
-            <Link to="/patterns">Design Patterns</Link>
-            <Link to="/page-designs">Page Designs</Link>
+            <Link className="navbar--item" to="/patterns">Design Patterns</Link>
+            <Link className="navbar--item" to="/page-designs">Page Designs</Link>
             <Link className="navbar--item" to="/blog">
               Blog
             </Link>
-            <Link className="navbar--item" to="/about">
-              About
+            <Link className="navbar--item" to="/books">
+              Book Reviews
             </Link>
             <Link className="navbar--item" to="/sign-in">
               Log in
             </Link>
           </div>
           <div className="footer--nav-column">
-            <Link to="/contact">Contact</Link>
-            <Link to="/uses">What do you use?</Link>
-            <Link to="/sitemap">Sitemap</Link>
-            <Link to="/disclaimer">Disclaimer</Link>
+            <Link className="navbar--item" to="/about">About</Link>
+            <Link className="navbar--item" to="/contact">Contact</Link>
+            <Link className="navbar--item" to="/uses">What do you use?</Link>
+            <Link className="navbar--item" to="/sitemap">Sitemap</Link>
+            <Link className="navbar--item" to="/disclaimer">Disclaimer</Link>
           </div>
           <div className="footer--newsletter">
             <h3 className="header--xsmall footer--newsletter-header">Get the best product design advice delivered right to your inbox.</h3>
